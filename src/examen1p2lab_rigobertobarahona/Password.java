@@ -1,21 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package examen1p2lab_rigobertobarahona;
 
-/**
- *
- * @author Ivins
- */
-public class Password extends javax.swing.JPanel {
+import java.util.ArrayList;
 
-    /**
-     * Creates new form Password
-     */
+public class Password extends javax.swing.JPanel {
+        
     public Password() {
         initComponents();
+        ArrayList<Usuario> usuarios = new ArrayList();
+        ArrayList<Arma> arma = new ArrayList();
+        ArrayList<Personaje> personaje = new ArrayList();
+
+        String nameA = "Inferno";
+        int dano = 100;
+        int precision = 100;
+
+        arma.add(new Arma(nameA, dano, precision));
+        
+        String nameP = "Cinder";
+        int vida = 180;
+        int escudo = 120;
+        personaje.add( new Rastreador(nameP, vida, escudo, ( (Arma) arma.get(0) ) ) );
+        
+        String nameU = "Mateo Eliseo";
+        int ID = 8888;
+        String pass = "80085";
+        usuarios.add( new Usuario( nameU, ID, pass, ( (Personaje) personaje.get(0) ) ) );
+        
+        
     }
 
     /**
@@ -27,19 +38,69 @@ public class Password extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        Pass_Title = new javax.swing.JLabel();
+        Pass_Login = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        Pass_Title.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        Pass_Title.setForeground(new java.awt.Color(255, 153, 0));
+        Pass_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Pass_Title.setText("APEX LEGENDS");
+
+        Pass_Login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Pass_Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Pass_Login.setText("LOGIN");
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(Pass_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(Pass_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(252, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(Pass_Title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Pass_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(0, 223, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Pass_Login;
+    private javax.swing.JLabel Pass_Title;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

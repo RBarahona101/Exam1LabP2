@@ -1,14 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package examen1p2lab_rigobertobarahona;
+import java.util.ArrayList;
 
-/**
- *
- * @author Ivins
- */
 public class Arma {
+    String nameA;
+    int dano;
+    int presicion;
+
+    public Arma() {
+    }
+
+    public String getName() {
+        return nameA;
+    }
+
+    public void setNameA(String name) {
+        this.nameA = name;
+    }
+
+    public int getDano() {
+        return dano;
+    }
+
+    public void setDano(int dano) {
+        this.dano = dano;
+    }
+
+    public int getPresicion() {
+        return presicion;
+    }
+
+    public void setPresicion(int presicion) {
+        this.presicion = presicion;
+    }
+
+    public Arma(String nameA, int dano, int presicion) {
+        this.nameA = nameA;
+        this.dano = dano;
+        this.presicion = presicion;
+    }
     
 }
