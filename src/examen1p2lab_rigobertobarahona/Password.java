@@ -1,15 +1,16 @@
 package examen1p2lab_rigobertobarahona;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Password extends javax.swing.JPanel {
-        
+    ApexMain Apex = new ApexMain();    
     public Password() {
         initComponents();
         ArrayList<Usuario> usuarios = new ArrayList();
         ArrayList<Arma> armas = new ArrayList();
         ArrayList<Personaje> personajes = new ArrayList();
-
+        
         String nameA = "Inferno";
         int dano = 100;
         int precision = 100;
@@ -17,20 +18,21 @@ public class Password extends javax.swing.JPanel {
         armas.add(new Arma(nameA, dano, precision));
         ArrayList<Arma> arma = new ArrayList();
         
-        arma.add(new Arma (nameA, dano, precision ) );
+        
         String nameP = "Cinder";
         int vida = 180;
         int escudo = 120;
         
         personajes.add( new Rastreador(nameP, vida, escudo, arma) );
-        
+        ( (Rastreador) personajes.get(0) ).getArma().add( (Arma) armas.get(0) );
         ArrayList<Personaje> personaje = new ArrayList();
         
         String nameU = "Mateo Eliseo";
         int ID = 8888;
         String pass = "80085";
-        usuarios.add( new Usuario( nameU, ID, pass, personaje) );
         
+        usuarios.add( new Usuario( nameU, ID, pass, personaje) );
+        ( (Usuario) usuarios.get(0) ).getPersonaje().add( (Rastreador) personajes.get(0) );
         
     }
 
@@ -43,6 +45,8 @@ public class Password extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         Pass_Background = new javax.swing.JPanel();
         Pass_Title = new javax.swing.JLabel();
         Pass_Login = new javax.swing.JLabel();
@@ -110,8 +114,9 @@ public class Password extends javax.swing.JPanel {
         Pass_BackgroundLayout.setVerticalGroup(
             Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pass_BackgroundLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addComponent(Pass_Title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(17, 17, 17)
                 .addComponent(Pass_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +126,9 @@ public class Password extends javax.swing.JPanel {
                 .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Pass_Password)
                     .addComponent(Pass_PasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Password_LoginButton)
-                .addGap(52, 52, 52))
+                .addGap(88, 88, 88))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -142,7 +147,17 @@ public class Password extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Password_LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Password_LoginButtonMouseClicked
-        // TODO add your handling code here:
+        String US_Input, Pass_Input;
+        US_Input = String.valueOf(Pass_UsernameText.getText() ) ;
+        Pass_Input = String.valueOf(Pass_PasswordInput.getText() );
+        if (US_Input.equals( "Mateo Eliseo" ) && Pass_Input.contains("80085") ){
+            JOptionPane.showMessageDialog(this, "Login Exitoso, Bienvenido Mateo");
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Datos Ingresados Invalidos");
+        }
+            
+        
     }//GEN-LAST:event_Password_LoginButtonMouseClicked
 
 
@@ -155,5 +170,7 @@ public class Password extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField Pass_UsernameText;
     private javax.swing.JButton Password_LoginButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }
