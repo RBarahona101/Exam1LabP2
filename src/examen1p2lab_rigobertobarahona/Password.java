@@ -7,24 +7,29 @@ public class Password extends javax.swing.JPanel {
     public Password() {
         initComponents();
         ArrayList<Usuario> usuarios = new ArrayList();
-        ArrayList<Arma> arma = new ArrayList();
-        ArrayList<Personaje> personaje = new ArrayList();
+        ArrayList<Arma> armas = new ArrayList();
+        ArrayList<Personaje> personajes = new ArrayList();
 
         String nameA = "Inferno";
         int dano = 100;
         int precision = 100;
 
-        arma.add(new Arma(nameA, dano, precision));
+        armas.add(new Arma(nameA, dano, precision));
+        ArrayList<Arma> arma = new ArrayList();
         
+        arma.add(new Arma (nameA, dano, precision ) );
         String nameP = "Cinder";
         int vida = 180;
         int escudo = 120;
-        personaje.add( new Rastreador(nameP, vida, escudo, ( (Arma) arma.get(0) ) ) );
+        
+        personajes.add( new Rastreador(nameP, vida, escudo, arma) );
+        
+        ArrayList<Personaje> personaje = new ArrayList();
         
         String nameU = "Mateo Eliseo";
         int ID = 8888;
         String pass = "80085";
-        usuarios.add( new Usuario( nameU, ID, pass, ( (Personaje) personaje.get(0) ) ) );
+        usuarios.add( new Usuario( nameU, ID, pass, personaje) );
         
         
     }
@@ -38,12 +43,16 @@ public class Password extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Pass_Background = new javax.swing.JPanel();
         Pass_Title = new javax.swing.JLabel();
         Pass_Login = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Pass_UsernameText = new javax.swing.JFormattedTextField();
+        Pass_Password = new javax.swing.JLabel();
+        Password_LoginButton = new javax.swing.JButton();
+        Pass_PasswordInput = new javax.swing.JFormattedTextField();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        Pass_Background.setBackground(new java.awt.Color(255, 255, 255));
 
         Pass_Title.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         Pass_Title.setForeground(new java.awt.Color(255, 153, 0));
@@ -54,53 +63,97 @@ public class Password extends javax.swing.JPanel {
         Pass_Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Pass_Login.setText("LOGIN");
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("USERNAME");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(Pass_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        Pass_UsernameText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Pass_UsernameText.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+
+        Pass_Password.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Pass_Password.setText("PASSWORD");
+
+        Password_LoginButton.setBackground(new java.awt.Color(255, 153, 0));
+        Password_LoginButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Password_LoginButton.setForeground(new java.awt.Color(255, 255, 255));
+        Password_LoginButton.setText("LOGIN");
+        Password_LoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Password_LoginButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Pass_BackgroundLayout = new javax.swing.GroupLayout(Pass_Background);
+        Pass_Background.setLayout(Pass_BackgroundLayout);
+        Pass_BackgroundLayout.setHorizontalGroup(
+            Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pass_BackgroundLayout.createSequentialGroup()
+                .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Pass_BackgroundLayout.createSequentialGroup()
                         .addGap(324, 324, 324)
                         .addComponent(Pass_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Pass_BackgroundLayout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Pass_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Pass_BackgroundLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Pass_Password)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Pass_UsernameText)
+                                    .addComponent(Password_LoginButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                    .addComponent(Pass_PasswordInput))))))
                 .addContainerGap(252, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        Pass_BackgroundLayout.setVerticalGroup(
+            Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pass_BackgroundLayout.createSequentialGroup()
                 .addComponent(Pass_Title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Pass_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(0, 223, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Pass_UsernameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14)
+                .addGroup(Pass_BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Pass_Password)
+                    .addComponent(Pass_PasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(Password_LoginButton)
+                .addGap(52, 52, 52))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Pass_Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(Pass_Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Password_LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Password_LoginButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Password_LoginButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Pass_Background;
     private javax.swing.JLabel Pass_Login;
+    private javax.swing.JLabel Pass_Password;
+    private javax.swing.JFormattedTextField Pass_PasswordInput;
     private javax.swing.JLabel Pass_Title;
+    private javax.swing.JFormattedTextField Pass_UsernameText;
+    private javax.swing.JButton Password_LoginButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
