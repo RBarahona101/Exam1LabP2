@@ -38,5 +38,10 @@ public class Arma {
         this.dano = dano;
         this.presicion = presicion;
     }
+
+    @Override
+    public String toString() {
+        return "Arma{" + "nameA=" + nameA + ", dano=" + dano + ", presicion=" + presicion + '}';
+    }
     
 }

@@ -46,6 +46,11 @@ public class Personaje {
         this.escudo = escudo;
         this.arma = arma;
     }
+
+    @Override
+    public String toString() {
+        return "Personaje{" + "nameP=" + nameP + ", vida=" + vida + ", escudo=" + escudo + ", arma=" + arma + '}';
+    }
     
     
 }

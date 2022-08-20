@@ -48,6 +48,11 @@ public class Usuario {
         this.pass = pass;
         this.personaje = personaje;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nameU=" + nameU + ", ID=" + ID + ", pass=" + pass + ", personaje=" + personaje + '}';
+    }
     
     
 }
